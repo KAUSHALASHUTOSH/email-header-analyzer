@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MailSpy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #ffffff;
+            padding-top: 70px;
+            animation: backgroundSlide 10s infinite alternate;
+        }
+
+        @keyframes backgroundSlide {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        nav {
+            background-color: transparent;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #00ffcc;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 12px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00ffcc;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: #00ffcc;
+        }
+
+        textarea, button, ul {
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        textarea {
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            background: #00ffcc;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #00cc99;
+        }
+
+        ul li {
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #ccc;
+            margin-top: 30px;
+        }
+
+        .home-box p a {
+            color: #00ffcc;
+            font-weight: 600;
+        }
+
+        @media screen and (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .nav-links a {
+                margin: 8px 10px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">📧 MailSpy</div>
+    <div class="nav-links">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('analyzer') }}">Analyzer Tool</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+<footer>
+    &copy; 2025 Ashu's Cybersecurity Project | Built with ❤️ and Python + Flask
+</footer>
+
+</body>
+</html>

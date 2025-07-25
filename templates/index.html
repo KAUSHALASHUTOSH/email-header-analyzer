@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container text-center py-5 animate__animated animate__fadeIn">
+    <h1 class="display-4 fw-bold mb-4" style="color: #00ffcc;">Welcome to MailSpy</h1>
+    <p class="lead" style="color: #ffffffb0;">
+        MailSpy is a cybersecurity tool designed to help users identify spoofing and phishing attempts hidden in email headers. Whether you're a beginner or a security analyst, this project offers a simple way to learn about and defend against email-based threats.
+    </p>
+
+    <div class="my-5">
+        <h3 style="color: #00ffcc;">🔍 Features:</h3>
+        <ul class="list-unstyled" style="color: #ffffffd0;">
+            <li>✅ Analyze raw email headers in one click</li>
+            <li>✅ Detect SPF, DKIM, and DMARC validation results</li>
+            <li>✅ Fast and clean web interface</li>
+            <li>✅ Built using Flask and Python</li>
+        </ul>
+    </div>
+
+    <div class="my-4">
+        <a href="/analyzer" class="btn btn-outline-info btn-lg">Try Analyzer Tool 🚀</a>
+    </div>
+
+    <div class="mt-5">
+        <p style="color: #ffffff99; font-size: 0.9rem;">
+            © 2025 Developed by Ashutosh Kaushal | A Final Year B.Tech CSE Cybersecurity Project
+        </p>
+    </div>
+</div>
+{% endblock %}

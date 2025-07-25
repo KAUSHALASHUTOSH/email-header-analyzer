@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="margin-top: 60px;">
+    <h2 style="color: #00ffc8; text-align: center; margin-bottom: 30px;">📬 Email Header Analyzer Tool</h2>
+
+    <form method="POST" style="text-align: center;">
+        <textarea name="header" rows="12" placeholder="Paste email header here..." style="width: 90%; padding: 15px; border-radius: 10px; border: none; background: #111; color: #fff;"></textarea><br><br>
+        <button type="submit" style="padding: 10px 30px; background: #00ffc8; border: none; border-radius: 5px; font-weight: bold; color: #000;">Analyze</button>
+    </form>
+
+    {% if result %}
+    <div style="margin-top: 40px; background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); padding: 20px; border-radius: 10px; color: #fff;">
+        <h3 style="color: #00ffc8;">🧠 Analysis Result</h3>
+        <ul style="list-style: none; padding-left: 0;">
+            {% for key, value in result.items() %}
+            <li style="margin-bottom: 10px;"><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if history %}
+<div style="margin-top: 40px; background: #1a1a1a; padding: 20px; border-radius: 10px; color: #fff;">
+    <h3 style="color: #00ffc8;">🕘 Last 5 Analyses</h3>
+    <ul style="list-style: none; padding-left: 0;">
+        {% for item in history %}
+        <li style="margin-bottom: 10px;">
+            <strong>SPF:</strong> {{ item.get("SPF Result", "N/A") }},
+            <strong>DKIM:</strong> {{ item.get("DKIM Result", "N/A") }},
+            <strong>DMARC:</strong> {{ item.get("DMARC Result", "N/A") }},
+            <strong>Trace:</strong> {{ item.get("Mail Server Trace", "N/A")[:60] }}...
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Animate.css for animation -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<style>
+  .result-card {
+    background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+    color: #00ffc3;
+    padding: 25px;
+    margin: 40px auto;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #00ffc3;
+    font-size: 1.1rem;
+    max-width: 800px;
+    width: 90%;
+    line-height: 1.6;
+  }
+
+  .result-card h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00ffee;
+  }
+
+  .result-card ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .result-card li {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+  }
+
+  .result-card li:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 600px) {
+    .result-card {
+      font-size: 1rem;
+      padding: 20px;
+    }
+
+    .result-card h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<div class="result-card animate__animated animate__fadeInUp">
+  <h2>📬 Analysis Result</h2>
+  <ul>
+    <li><strong>SPF Result:</strong> ✅ {{ spf }}</li>
+    <li><strong>DKIM Result:</strong> ✅ {{ dkim }}</li>
+    <li><strong>DMARC Result:</strong> ✅ {{ dmarc }}</li>
+    <li><strong>Mail Server Trace:</strong> 🛰️ {{ trace }}</li>
+  </ul>
+</div>
+{% endblock %}
